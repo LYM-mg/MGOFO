@@ -1,0 +1,26 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'MGOFO' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for MGOFO
+
+	pod 'MJRefresh', '~> 3.1.12'
+	pod 'MBProgressHUD', '~> 1.0.0'
+	pod 'Alamofire', '~> 4.4.0'
+	pod 'Kingfisher', '~> 3.5.0'
+	pod 'SnapKit', '~> 3.2.0'      # 约束布局
+	pod 'Masonry', '~> 1.0.2'
+	pod 'MJExtension', '~> 3.0.13'
+    
+    # 地图相关
+    # pod 'AMap3DMap'   # (Using AMap3DMap (4.6.1))
+    pod 'AMapSearch'    # 搜索功能 4.5.0
+    pod 'AMapLocation'  # 定位SDK 2.3.0
+    pod 'AMapNavi'      # 导航SDK 已包含3D地图，无需单独引入3D地图 2.3.0
+    
+    pod 'FTIndicator', '~> 1.1.9' # 提示相关
+
+end

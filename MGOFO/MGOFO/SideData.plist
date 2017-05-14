@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>我的行程</string>
+		<key>imageName</key>
+		<string>HomePage_MyStroke_20x20_</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>我的钱包</string>
+		<key>imageName</key>
+		<string>HomePage_MyWallet_20x20_</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>输入优惠码</string>
+		<key>imageName</key>
+		<string>HomePage_inviteCode_20x20_</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>邀请好友</string>
+		<key>imageName</key>
+		<string>HomePage_Invite_20x20_</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>使用指南</string>
+		<key>imageName</key>
+		<string>HomePage_UserGuide_20x20_</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>关于我们</string>
+		<key>imageName</key>
+		<string>HomePage_AboutUs_20x20_</string>
+	</dict>
+</array>
+</plist>
