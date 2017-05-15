@@ -10,6 +10,7 @@ PODS:
     - AMapFoundation (~> 1.2)
   - AMapSearch (4.5.0):
     - AMapFoundation (~> 1.2)
+  - APNumberPad (1.2.0)
   - FTIndicator (1.1.9):
     - FTIndicator/FTNotificationIndicator (= 1.1.9)
     - FTIndicator/FTProgressIndicator (= 1.1.9)
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - AMapLocation
   - AMapNavi
   - AMapSearch
+  - APNumberPad (~> 1.2.0)
   - FTIndicator (~> 1.1.9)
   - Kingfisher (~> 3.5.0)
   - Masonry (~> 1.0.2)
@@ -44,6 +46,7 @@ SPEC CHECKSUMS:
   AMapLocation: 5fb51fe0e35e68a899199651942e6234d6257d91
   AMapNavi: 4f48c7b34275f80f3d14eff669ac739e0e190c1b
   AMapSearch: 7a6ebc20a42e34a021b042b047f198082fc2fc30
+  APNumberPad: a63526db2db628824ae92e7124719e87e0f1c969
   FTIndicator: 720f0e194a1d1529eb00e3ef9ac407e985917e46
   Kingfisher: 7c62087039d93d26c54c8dd9b0b588d2ce55cef6
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
@@ -52,6 +55,6 @@ SPEC CHECKSUMS:
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
 
-PODFILE CHECKSUM: 7dc162f0fafda6ff979cef86ee25ac6365f215ce
+PODFILE CHECKSUM: f79908d16a4ea861e8a06a6f60e9bb22a3e28986
 
 COCOAPODS: 1.2.0.beta.1

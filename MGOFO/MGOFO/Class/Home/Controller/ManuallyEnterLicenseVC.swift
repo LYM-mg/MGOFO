@@ -8,16 +8,20 @@
 
 import UIKit
 import AVFoundation
+import APNumberPad
+/*
 import AVKit
 import AudioToolbox
-import 
+import CoreAudioKit
+import CoreAudio
+ */
 
 class ManuallyEnterLicenseVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "车辆解锁"
-        view.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
+        view.backgroundColor = UIColor(white: 0.97, alpha: 1.0)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "扫码用车", style: .done, target: self, action: #selector(backToScan))
         setUpMainView()
     }
@@ -70,7 +74,8 @@ extension ManuallyEnterLicenseVC {
 }
 
 // MARK: - 顶部
-class TopView: UIView {
+class TopView: UIView,UITextFieldDelegate,APNumberPadDelegate {
+    var sureBtn: UIButton!
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
@@ -98,18 +103,22 @@ class TopView: UIView {
         chargingLabel.font = UIFont.systemFont(ofSize: 14)
         chargingLabel.sizeToFit()
         
-        let inputView = UITextField()
-        inputView.placeholder = "请输入车牌号"
-        inputView.keyboardType = .numbersAndPunctuation
-        inputView.textAlignment = .center
-        inputView.borderStyle = .roundedRect
-        inputView.font = UIFont(name: "Baskerville-SemiBoldItalic", size: 25) // "HelveticaNeue-CondensedBlack"
-        inputView.clearButtonMode = .whileEditing // //设置一键清除按钮是否出现
-        inputView.clearsOnBeginEditing = false // 默认
-        inputView.layer.borderColor = UIColor(r: 247, g: 215, b: 81).cgColor
-        inputView.layer.borderWidth = 2
+        let inputTextField = UITextField()
+        inputTextField.placeholder = "请输入车牌号"
+        inputTextField.keyboardType = .numbersAndPunctuation
+        inputTextField.textAlignment = .center
+        inputTextField.borderStyle = .roundedRect
+        inputTextField.font = UIFont(name: "Baskerville-SemiBoldItalic", size: 25) // "HelveticaNeue-CondensedBlack"
+        inputTextField.clearButtonMode = .none // //设置一键清除按钮是否出现
+        inputTextField.clearsOnBeginEditing = false // 默认
+        inputTextField.layer.borderColor = UIColor(r: 247, g: 215, b: 81).cgColor
+        inputTextField.layer.borderWidth = 2
+        let numberPad = APNumberPad(delegate: self)
+        numberPad.leftFunctionButton.setTitle("确定", for: .normal)
+        inputTextField.inputView = numberPad
+        inputTextField.delegate = self
         
-        let sureBtn = UIButton(image: #imageLiteral(resourceName: "nextArrow_enable_25x19_"), bgImage: nil, target: self, action: #selector(sureBtnClick(_:)))
+        sureBtn = UIButton(image: #imageLiteral(resourceName: "nextArrow_enable_25x19_"), bgImage: nil, target: self, action: #selector(sureBtnClick(_:)))
         sureBtn.backgroundColor = UIColor.groupTableViewBackground
         
         let descripLabel = UILabel()
@@ -119,7 +128,7 @@ class TopView: UIView {
         
         self.addSubview(imageV)
         self.addSubview(chargingLabel)
-        self.addSubview(inputView)
+        self.addSubview(inputTextField)
         self.addSubview(sureBtn)
         self.addSubview(descripLabel)
         
@@ -133,7 +142,7 @@ class TopView: UIView {
             make.top.equalTo(imageV.snp.bottom).offset(5)
             make.centerX.equalToSuperview()
         }
-        inputView.snp.makeConstraints { (make) in
+        inputTextField.snp.makeConstraints { (make) in
             make.top.equalTo(chargingLabel.snp.bottom).offset(MGGloabalMargin)
             make.left.equalToSuperview().offset(30)
             make.right.equalTo(sureBtn.snp.left).offset(-MGGloabalMargin/2)
@@ -141,18 +150,38 @@ class TopView: UIView {
         }
         sureBtn.snp.makeConstraints { (make) in
             make.right.equalToSuperview().offset(-30)
-            make.centerY.equalTo(inputView)
+            make.centerY.equalTo(inputTextField)
             make.width.equalTo(50)
             make.height.equalTo(50)
         }
         descripLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(inputView.snp.bottom).offset(MGGloabalMargin)
+            make.top.equalTo(inputTextField.snp.bottom).offset(MGGloabalMargin)
             make.centerX.equalToSuperview()
         }
     }
     
     @objc fileprivate func sureBtnClick(_ btn: UIButton) {
         self.showInfo(info: "确定")
+    }
+    
+    // MARK: - UITextFieldDelegate,APNumberPadDelegate
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // guard let text = textField.text else { return true }
+        let textLength = range.location - 1
+        if textLength > 0 {
+            sureBtn.setImage(#imageLiteral(resourceName: "nextArrow_enable_25x19_"), for: .normal)
+            sureBtn.backgroundColor = UIColor(r: 247, g: 215, b: 81)
+        } else {
+            sureBtn.setImage(UIImage(named: "nextArrow_unenable_25x19_"), for: .normal)
+            sureBtn.backgroundColor = UIColor.groupTableViewBackground
+        }
+        if textLength > 8 {
+            self.showInfo(info: "你只能输入8位数的车牌号")
+        }
+        return textLength <= 8
+    }
+    func numberPad(_ numberPad: APNumberPad, functionButtonAction functionButton: UIButton, textInput: UIResponder) {
+        sureBtnClick(functionButton)
     }
 }
 
@@ -221,11 +250,13 @@ class BottomView: UIView {
     @objc fileprivate func voiceBtnClick(_ btn: UIButton) {
         btn.isSelected = !btn.isSelected
         self.showInfo(info: "声音")
+        /*
         if CDAudioManager.shared.mute == true {
             CDAudioManager.shared.mute = false
         }
         else {
             CDAudioManager.shared.mute = true
         }
+         */
     }
 }
