@@ -109,8 +109,9 @@ class TopView: UIView,UITextFieldDelegate,APNumberPadDelegate {
         inputTextField.textAlignment = .center
         inputTextField.borderStyle = .roundedRect
         inputTextField.font = UIFont(name: "Baskerville-SemiBoldItalic", size: 25) // "HelveticaNeue-CondensedBlack"
-        inputTextField.clearButtonMode = .none // //设置一键清除按钮是否出现
+        inputTextField.clearButtonMode = .never // //设置一键清除按钮是否出现
         inputTextField.clearsOnBeginEditing = false // 默认
+        inputTextField.tintColor = UIColor(r: 247, g: 215, b: 81)
         inputTextField.layer.borderColor = UIColor(r: 247, g: 215, b: 81).cgColor
         inputTextField.layer.borderWidth = 2
         let numberPad = APNumberPad(delegate: self)
