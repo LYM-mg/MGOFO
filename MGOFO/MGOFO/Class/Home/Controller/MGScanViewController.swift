@@ -82,25 +82,26 @@ class MGScanViewController: LBXScanViewController {
     fileprivate func bottomViewClick() {
         scanBottom.btnClickBlcok = { [unowned self](view,btn, type) in
             switch type {
-            case .flash:
-                self.scanObj?.changeTorch();
-                
-                self.isOpenedFlash = !self.isOpenedFlash
-                
-                if self.isOpenedFlash {
-                    btn.setImage(UIImage(named: "btn_enableTorch_45x45_"), for:UIControlState.normal)
-                } else {
-                    btn.setImage(UIImage(named: "btn_unenableTorch_45x45_")!, for:UIControlState.normal)
-                }
-            case .intput:
-                self.showHint(hint: "手动输入车牌号")
-            case .photo:
-                
-                break
-            case .myqrcode:
-                self.showHint(hint: "我的二维码")
-                // self.show(QRCodeViewController(), sender: nil)
-                break
+                case .flash:
+                    self.scanObj?.changeTorch();
+                    
+                    self.isOpenedFlash = !self.isOpenedFlash
+                    
+                    if self.isOpenedFlash {
+                        btn.setImage(UIImage(named: "btn_enableTorch_45x45_"), for:UIControlState.normal)
+                    } else {
+                        btn.setImage(UIImage(named: "btn_unenableTorch_45x45_")!, for:UIControlState.normal)
+                    }
+                case .intput:
+                    self.show(ManuallyEnterLicenseVC(), sender: nil)
+                    self.showHint(hint: "手动输入车牌号")
+                case .photo:
+                    
+                    break
+                case .myqrcode:
+                    self.showHint(hint: "我的二维码")
+                    // self.show(QRCodeViewController(), sender: nil)
+                    break
             }
         }
     }

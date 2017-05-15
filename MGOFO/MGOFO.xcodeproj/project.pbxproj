@@ -27,6 +27,7 @@
 		C06168C51EC8053000414C9A /* SaveTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06168BE1EC8053000414C9A /* SaveTools.swift */; };
 		C06168C71EC8053000414C9A /* SysNetWorkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06168C01EC8053000414C9A /* SysNetWorkTools.swift */; };
 		C06168C81EC8053000414C9A /* UpdateTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06168C11EC8053000414C9A /* UpdateTool.swift */; };
+		C06168CC1EC9A97E00414C9A /* ManuallyEnterLicenseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06168CB1EC9A97E00414C9A /* ManuallyEnterLicenseVC.swift */; };
 		C0676C5F1EC1EE2800302641 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0676C5E1EC1EE2800302641 /* AppDelegate.swift */; };
 		C0676C641EC1EE2800302641 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0676C621EC1EE2800302641 /* Main.storyboard */; };
 		C0676C661EC1EE2800302641 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0676C651EC1EE2800302641 /* Assets.xcassets */; };
@@ -97,6 +98,7 @@
 		C06168BE1EC8053000414C9A /* SaveTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveTools.swift; sourceTree = "<group>"; };
 		C06168C01EC8053000414C9A /* SysNetWorkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SysNetWorkTools.swift; sourceTree = "<group>"; };
 		C06168C11EC8053000414C9A /* UpdateTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateTool.swift; sourceTree = "<group>"; };
+		C06168CB1EC9A97E00414C9A /* ManuallyEnterLicenseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManuallyEnterLicenseVC.swift; sourceTree = "<group>"; };
 		C0676C5B1EC1EE2800302641 /* MGOFO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MGOFO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0676C5E1EC1EE2800302641 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C0676C631EC1EE2800302641 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				C0BD0A121EC2C138001B81B4 /* HomeViewController.swift */,
 				C0BD0A0E1EC2C058001B81B4 /* WKWebViewController.swift */,
 				C06168981EC466F800414C9A /* MGScanViewController.swift */,
+				C06168CB1EC9A97E00414C9A /* ManuallyEnterLicenseVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 			files = (
 				C06168A81EC4674B00414C9A /* LBXScanNetAnimation.swift in Sources */,
 				C06168C71EC8053000414C9A /* SysNetWorkTools.swift in Sources */,
+				C06168CC1EC9A97E00414C9A /* ManuallyEnterLicenseVC.swift in Sources */,
 				C06168AC1EC4674B00414C9A /* LBXScanWrapper.swift in Sources */,
 				C0BD0A151EC2DD60001B81B4 /* UIViewController+Extension.swift in Sources */,
 				C06168A61EC4674B00414C9A /* LBXPermissions.swift in Sources */,

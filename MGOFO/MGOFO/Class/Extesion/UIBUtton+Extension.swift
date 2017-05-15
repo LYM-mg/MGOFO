@@ -59,6 +59,23 @@ extension UIButton {
         // 2.监听
         addTarget(target, action: action, for: .touchUpInside)
     }
+    
+    convenience init(image:UIImage,selectedImage: UIImage?, target: Any, action:Selector) {
+        self.init()
+        
+        // 1.设置按钮的属性
+        setImage(image, for: .normal)
+        if selectedImage != nil {
+            setImage(selectedImage, for: .selected)
+        }
+        setTitle("", for: UIControlState.normal)
+        
+        sizeToFit()
+        
+        // 2.监听
+        addTarget(target, action: action, for: .touchUpInside)
+    }
+
 
     
     // MARK: - 👆上面是项目使用到的方法

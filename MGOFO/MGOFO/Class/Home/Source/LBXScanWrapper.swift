@@ -150,7 +150,7 @@ open class LBXScanWrapper: NSObject,AVCaptureMetadataOutputObjectsDelegate {
     func start() {
         if !session.isRunning {
             isNeedScanResult = true
-            session.startRunning()
+            // session.startRunning()
             /*
             #if TARGET_IPHONE_SIMULATOR//模拟器
                 self.showInfo(info: "相机不可用")

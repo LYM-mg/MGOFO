@@ -123,7 +123,7 @@ extension BaseNavigationController {
         shadow.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)
         shadow.shadowOffset = CGSize(width: 0, height: 1)
         var attributes = [String : Any]()
-        attributes[NSForegroundColorAttributeName] = UIColor(r: 245.0, g: 245.0, b: 245.0)
+        attributes[NSForegroundColorAttributeName] = UIColor(r: 247, g: 215, b: 81)
         attributes[NSShadowAttributeName] = shadow
         attributes[NSFontAttributeName] = UIFont(name: "HelveticaNeue-CondensedBlack", size: 17)
         barItemAppearence.setTitleTextAttributes(attributes, for: .normal)
