@@ -9,6 +9,8 @@
 import UIKit
 import AVFoundation
 import APNumberPad
+import MediaPlayer
+
 /*
 import AVKit
 import AudioToolbox
@@ -252,6 +254,22 @@ class BottomView: UIView {
     @objc fileprivate func voiceBtnClick(_ btn: UIButton) {
         btn.isSelected = !btn.isSelected
         self.showInfo(info: "声音")
+        
+        let volumeView = MPVolumeView()
+        var volumeViewSlider: UISlider? = nil
+        for view: UIView in volumeView.subviews {
+            if (view.self.description == "MPVolumeSlider") {
+                volumeViewSlider = (view as? UISlider)
+                break
+            }
+        }
+        let value: Float = btn.isSelected ? 0 : 1
+        // retrieve system volume
+        // var systemVolume: Float? = volumeViewSlider?.value
+        // change system volume, the value is between 0.0f and 1.0f
+        volumeViewSlider?.setValue(value, animated: false)
+        // send UI control event to make the change effect right now.
+        volumeViewSlider?.sendActions(for: .touchUpInside)
         /*
         if CDAudioManager.shared.mute == true {
             CDAudioManager.shared.mute = false
