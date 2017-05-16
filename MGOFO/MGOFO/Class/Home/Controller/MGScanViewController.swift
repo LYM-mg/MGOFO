@@ -94,7 +94,6 @@ class MGScanViewController: LBXScanViewController {
                     }
                 case .intput:
                     self.show(ManuallyEnterLicenseVC(), sender: nil)
-                    self.showHint(hint: "手动输入车牌号")
                 case .photo:
                     
                     break

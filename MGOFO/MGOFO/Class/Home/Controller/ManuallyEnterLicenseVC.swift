@@ -99,12 +99,12 @@ class TopView: UIView,UITextFieldDelegate,APNumberPadDelegate {
         let imageV = UIImageView(image: #imageLiteral(resourceName: "inputPageImage_340x117_"))
         let chargingLabel = UILabel()
         chargingLabel.backgroundColor = UIColor.groupTableViewBackground
-        chargingLabel.layer.cornerRadius = 3
+        chargingLabel.layer.cornerRadius = 10
         chargingLabel.clipsToBounds = true
         chargingLabel.textColor = UIColor(r: 152, g: 147, b: 130)
         chargingLabel.text = "计费说明：1小时/1元"
         chargingLabel.font = UIFont.systemFont(ofSize: 14)
-        chargingLabel.sizeToFit()
+        chargingLabel.textAlignment = .center
         
         let inputTextField = UITextField()
         inputTextField.placeholder = "请输入车牌号"
@@ -124,6 +124,7 @@ class TopView: UIView,UITextFieldDelegate,APNumberPadDelegate {
         
         sureBtn = UIButton(image: #imageLiteral(resourceName: "nextArrow_enable_25x19_"), bgImage: nil, target: self, action: #selector(sureBtnClick(_:)))
         sureBtn.backgroundColor = UIColor.groupTableViewBackground
+        sureBtn.isEnabled = false
         
         let descripLabel = UILabel()
         descripLabel.font = UIFont.systemFont(ofSize: 17)
@@ -145,6 +146,7 @@ class TopView: UIView,UITextFieldDelegate,APNumberPadDelegate {
         chargingLabel.snp.makeConstraints { (make) in
             make.top.equalTo(imageV.snp.bottom).offset(5)
             make.centerX.equalToSuperview()
+            make.width.equalTo(160)
         }
         inputTextField.snp.makeConstraints { (make) in
             make.top.equalTo(chargingLabel.snp.bottom).offset(MGGloabalMargin)
@@ -172,6 +174,7 @@ class TopView: UIView,UITextFieldDelegate,APNumberPadDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         // guard let text = textField.text else { return true }
         let textLength = range.location
+        sureBtn.isEnabled = textLength > 0
         if textLength > 0 {
             sureBtn.setImage(#imageLiteral(resourceName: "nextArrow_enable_25x19_"), for: .normal)
             sureBtn.backgroundColor = UIColor(r: 247, g: 215, b: 81)
