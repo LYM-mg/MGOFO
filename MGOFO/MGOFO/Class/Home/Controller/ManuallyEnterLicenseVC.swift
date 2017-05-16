@@ -4,7 +4,7 @@
 //
 //  Created by i-Techsys.com on 2017/5/15.
 //  Copyright © 2017年 i-Techsys. All rights reserved.
-//
+//  手动输入车牌号解锁
 
 import UIKit
 import AVFoundation
@@ -50,7 +50,7 @@ extension ManuallyEnterLicenseVC {
         /// 顶部
         let topView = TopView()
         let bottomView = BottomView()
-        bottomView.backgroundColor = UIColor.randomColor()
+        // bottomView.backgroundColor = UIColor.randomColor()
         
         view.addSubview(topView)
         view.addSubview(bottomView)
@@ -79,9 +79,10 @@ class TopView: UIView,UITextFieldDelegate,APNumberPadDelegate {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
-        self.layer.shadowRadius = 3
+        self.layer.shadowRadius = 5
         self.layer.shadowOpacity = 0.5
         self.layer.shadowColor = UIColor.lightGray.cgColor
+        self.layer.shadowOffset = .zero
 
         setUpUI()
     }
@@ -168,7 +169,7 @@ class TopView: UIView,UITextFieldDelegate,APNumberPadDelegate {
     // MARK: - UITextFieldDelegate,APNumberPadDelegate
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         // guard let text = textField.text else { return true }
-        let textLength = range.location - 1
+        let textLength = range.location
         if textLength > 0 {
             sureBtn.setImage(#imageLiteral(resourceName: "nextArrow_enable_25x19_"), for: .normal)
             sureBtn.backgroundColor = UIColor(r: 247, g: 215, b: 81)
@@ -176,10 +177,10 @@ class TopView: UIView,UITextFieldDelegate,APNumberPadDelegate {
             sureBtn.setImage(UIImage(named: "nextArrow_unenable_25x19_"), for: .normal)
             sureBtn.backgroundColor = UIColor.groupTableViewBackground
         }
-        if textLength > 8 {
+        if textLength >= 8 {
             self.showInfo(info: "你只能输入8位数的车牌号")
         }
-        return textLength <= 8
+        return textLength < 8
     }
     func numberPad(_ numberPad: APNumberPad, functionButtonAction functionButton: UIButton, textInput: UIResponder) {
         sureBtnClick(functionButton)

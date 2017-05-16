@@ -58,10 +58,13 @@ let MGFirstResponder = MGKeyWindow?.perform(Selector(("firstResponder")))
 /// 通知中心
 let MGNotificationCenter = NotificationCenter.default
 
-/// 首页设置按钮的点击
+/// 侧边栏tableView的点击的通知
 let MGSideTableViewCellClickNoti  = "MGSideTableViewCellClickNoti"
-/// 首页选中公司后的通知
-let MGSelectCompanyClickNoti  = "MGSelectCompanyClickNoti"
+/// 侧边栏用户View的点击的通知
+let MGSideUserViewClickNoti  = "MGSideUserViewClickNoti"
+/// 侧边栏用户tableViewFooterView的点击的通知
+let MGSideFooterViewClickClickNoti  = "MGSideFooterViewClickClickNoti"
+
 /** 通知：头部即将消失的的通知 */
 let MGWillDisplayHeaderViewNotification = "MGWillDisplayHeaderViewNotification"
 /** 通知：头部完全消失的的通知 */

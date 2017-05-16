@@ -22,6 +22,7 @@ class SideViewController: UIViewController {
         let footerView = UIView(frame: CGRect(origin: .zero, size: CGSize(width: MGScreenW*0.82, height: 111)))
         footerView.backgroundColor = UIColor(white: 0.9, alpha: 1.0)
         footerView.addSubview(img)
+        footerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(SideViewController.footerViewClick)))
         tb.tableFooterView = footerView
         return tb
     }()
@@ -75,7 +76,16 @@ extension SideViewController {
             make.top.equalTo(userView.snp.bottom).offset(2)
             make.bottom.left.right.equalToSuperview()
         }
+        
+        userView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(userViewClick)))
         loadData()
+    }
+    
+    @objc fileprivate func userViewClick() {
+        MGNotificationCenter.post(name: NSNotification.Name(MGSideUserViewClickNoti), object: nil, userInfo: nil)
+    }
+    @objc fileprivate func footerViewClick() {
+        MGNotificationCenter.post(name: NSNotification.Name(MGSideFooterViewClickClickNoti), object: nil, userInfo: nil)
     }
     
     fileprivate func loadData() {

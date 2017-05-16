@@ -63,7 +63,7 @@ extension HomeViewController {
     
     // 热门活动
     @objc fileprivate func hotSportClick() {  // http://m.ofo.so/active.html
-        self.show(WKWebViewController(navigationTitle: "热门活动", urlStr: "http://m.ofo.so/active.html"), sender: nil)
+        self.show(WKWebViewController(navigationTitle: "活动中心", urlStr: "https://common.ofo.so/newdist/?Campaigns&app_id=2017030406052783&source=alipay_wallet&scope=auth_base&auth_code=2173b5cb27e64fb08bc1bc124faeUX34"), sender: nil)
     }
     
     @objc fileprivate func leftClick() {
@@ -105,6 +105,8 @@ extension HomeViewController {
     // MARK: 通知Notification
     fileprivate func setUpNotification() {
         MGNotificationCenter.addObserver(self, selector: #selector(self.sideTableViewCellClick(_:)), name: NSNotification.Name(MGSideTableViewCellClickNoti), object: nil)
+        MGNotificationCenter.addObserver(self, selector: #selector(self.sideUserViewClick(_:)), name: NSNotification.Name(MGSideUserViewClickNoti), object: nil)
+        MGNotificationCenter.addObserver(self, selector: #selector(self.sideFooterViewClick(_:)), name: NSNotification.Name(MGSideFooterViewClickClickNoti), object: nil)
     }
     
     @objc fileprivate func sideTableViewCellClick(_ noti: NSNotification) {
@@ -112,17 +114,18 @@ extension HomeViewController {
         
         switch row {
             case 0:
+                self.show(WKWebViewController(navigationTitle: "我的行程", urlStr: "https://common.ofo.so/newdist/?MeineReise&time=1494867448705"), sender: nil)
                 break
             case 1:
                 show(MyWalletViewController(nibName: "MyWalletViewController", bundle: nil), sender: nil)
             case 2:
-                
+                self.show(WKWebViewController(navigationTitle: "有码加入", urlStr: "https://common.ofo.so/newdist/?Redeem&time=1494867448705"), sender: nil)
                 break
             case 3: // https://scofo.ofo.so:8443
-                 self.show(WKWebViewController(navigationTitle: "邀请好友", urlStr: "https://github.com/LYM-mg"), sender: nil)
+                self.show(WKWebViewController(navigationTitle: "邀请好友", urlStr: "https://common.ofo.so/newdist/?CampaignDetail&app_id=2017030406052783&source=alipay_wallet&scope=auth_base&auth_code=2173b5cb27e64fb08bc1bc124faeUX34&~url=%22https%3A%2F%2Fcommon.ofo.so%2Fcampaign%2F17-2-21%2F%3Futm_source%3Dapp_activity%26utm_medium%3Dpopup%26utm_campaign%3D798_1494837726422%22"), sender: nil)
                 break
-            case 4: 
-                self.show(WKWebViewController(navigationTitle: "使用指南", urlStr: "http://www.jianshu.com/u/57b58a39b70e"), sender: nil)
+            case 4:  // http://www.jianshu.com/u/57b58a39b70e
+                self.show(WKWebViewController(navigationTitle: "使用指南", urlStr: "https://common.ofo.so/about/help.html"), sender: nil)
                 break
             case 5:
                 show(AboutUsViewController(), sender: nil)
@@ -131,6 +134,15 @@ extension HomeViewController {
                 break
         }
         leftClick()
+    }
+    
+    @objc fileprivate func sideUserViewClick(_ noti: Notification) {
+        leftClick()
+        self.show(WKWebViewController(navigationTitle: "我", urlStr: "https://common.ofo.so/newdist/?MeineReise&time=1494867448705"), sender: nil)
+    }
+    @objc fileprivate func sideFooterViewClick(_ noti: Notification) {
+        leftClick()
+        self.show(WKWebViewController(navigationTitle: "我", urlStr: "http://m.ofo.so/active.html"), sender: nil)
     }
 }
 
@@ -369,11 +381,11 @@ extension HomeViewController: CarPanelViewDelegate {
     }
 
     func carPanelViewInstantUserCarClickBlock(_ view: CarPanelView, _ btn: UIButton) {
-        self.showHint(hint: "立即用车")
+        // self.showHint(hint: "立即用车")
         self.show(MGScanViewController(), sender: nil)
     }
 
     func carPanelViewSuggestClickBlock(_ view: CarPanelView, _ btn: UIButton) {
-        self.showHint(hint: "吐槽建议")
+        self.show(WKWebViewController(navigationTitle: "吐槽", urlStr: "https://common.ofo.so/newdist/?Prosecute&time=1494868261998"), sender: nil)
     }
 }

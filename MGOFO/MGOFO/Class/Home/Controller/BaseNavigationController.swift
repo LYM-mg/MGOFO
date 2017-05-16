@@ -120,8 +120,8 @@ extension BaseNavigationController {
         let barItemAppearence = UIBarButtonItem.appearance()
         // 设置导航字体
         let shadow = NSShadow()
-        shadow.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.8)
-        shadow.shadowOffset = CGSize(width: 0, height: 1)
+        shadow.shadowColor = UIColor(red: 110, green: 110, blue: 110, alpha: 0.8)
+        shadow.shadowOffset = CGSize(width: 1, height: 1)
         var attributes = [String : Any]()
         attributes[NSForegroundColorAttributeName] = UIColor(r: 247, g: 215, b: 81)
         attributes[NSShadowAttributeName] = shadow
