@@ -10,7 +10,7 @@ import UIKit
 
 extension UIButton {
     /// 遍历构造函数
-    convenience init(image:UIImage?, bgImage:UIImage?,target: Any, action:Selector){
+    convenience init(image:UIImage?, bgImage:UIImage?,target: Any!, action:Selector!){
         self.init()
         
         // 1.设置按钮的属性
@@ -28,7 +28,9 @@ extension UIButton {
         sizeToFit()
         
         // 3.监听
-        addTarget(target, action: action, for: .touchUpInside)
+        if target != nil {            
+            addTarget(target, action: action, for: .touchUpInside)
+        }
     }
     
     convenience init(bgImage: UIImage?,title: String,target: Any, action:Selector) {

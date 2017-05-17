@@ -20,7 +20,6 @@ class EnterLicenseViewController: UIViewController { // 容器控制器
         addChildViewController(nav1)
         let vc2 = GetLicensePlateNumberVC()
         vc2.superVC = self
-        vc2.view.backgroundColor = UIColor.green
         let nav2 = UINavigationController(rootViewController: vc2)
         addChildViewController(nav2)
         
