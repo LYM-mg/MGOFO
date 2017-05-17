@@ -123,7 +123,6 @@ class TopView: UIView,UITextFieldDelegate,APNumberPadDelegate {
     }
     
     @objc fileprivate func sureBtnClick(_ btn: UIButton) {
-        self.showInfo(info: "确定")
         if sureBtnBlock != nil {
             sureBtnBlock!()
         }

@@ -33,6 +33,7 @@ class ManuallyEnterLicenseVC: UIViewController {
     }
     
     @objc fileprivate func explainClick(_ item: UIBarButtonItem) {
+        self.view.endEditing(true)
         MGKeyWindow?.addSubview(ExplainView.showInPoint(point: CGPoint(x: MGScreenW-45, y: 45)))
     }
     
@@ -67,7 +68,7 @@ extension ManuallyEnterLicenseVC {
         view.addSubview(bottomView)
         
         topView.sureBtnBlock = {
-            let firstController: UIViewController? = self.superVC?.childViewControllers[0]
+            // let firstController: UIViewController? = self.superVC?.childViewControllers[0]
             let secondController: UIViewController? = self.superVC?.childViewControllers[1]
             let oldController: UIViewController = (self.superVC?.currentViewController)!
 

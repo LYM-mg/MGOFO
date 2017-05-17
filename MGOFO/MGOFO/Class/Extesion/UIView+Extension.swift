@@ -109,7 +109,7 @@ extension UIView {
     /** 控件的origin */
     var mg_origin: CGPoint! {
         get {
-        return self.frame.origin
+            return self.frame.origin
         }
         set {
             var tmpFrame : CGRect = frame
@@ -122,14 +122,30 @@ extension UIView {
         return self.frame
     }
     
-    /// 圆角方法
+    /// MARK: - Layer相关属性方法圆角方法
     @IBInspectable var cornerRadius: CGFloat {
         get {
-            return layer.cornerRadius
+            return self.layer.cornerRadius
         }
         set {
             layer.cornerRadius = newValue
             layer.masksToBounds = newValue > 0
+        }
+    }
+    
+    @IBInspectable var borderWidth: CGFloat {
+        get{
+            return self.layer.borderWidth
+        }set {
+            self.layer.borderWidth = newValue
+        }
+    }
+    
+    @IBInspectable var borderColor: UIColor {
+        get{
+            return UIColor(cgColor: self.layer.borderColor!)
+        }set {
+            self.layer.borderColor = newValue.cgColor
         }
     }
 }

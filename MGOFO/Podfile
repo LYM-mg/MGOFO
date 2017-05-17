@@ -24,5 +24,8 @@ target 'MGOFO' do
     pod 'FTIndicator', '~> 1.1.9' # 提示相关
     
     pod 'APNumberPad', '~> 1.2.0' # 数字键盘
+    
+    pod 'SwiftySound', '~> 0.1.1' # 播放声音
+    pod 'SwiftyTimer', '~> 2.0.0' # 倒计时
 
 end

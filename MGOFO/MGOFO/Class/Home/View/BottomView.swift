@@ -48,6 +48,8 @@ class BottomView: UIView {
             make.width.equalTo(1)
             make.center.height.equalToSuperview()
         }
+        
+        voiceBtn.isSelected = (SaveTools.mg_getLocalData(key: "isVoiceOn") == nil)
     }
     
     @objc fileprivate func flashBtnClick(_ btn: UIButton) {
@@ -75,6 +77,7 @@ class BottomView: UIView {
     @objc fileprivate func voiceBtnClick(_ btn: UIButton) {
         btn.isSelected = !btn.isSelected
         self.showInfo(info: "声音")
+        SaveTools.mg_SaveToLocal(value: !btn.isSelected, key: "isVoiceOn")
         
         let volumeView = MPVolumeView()
         var volumeViewSlider: UISlider? = nil
