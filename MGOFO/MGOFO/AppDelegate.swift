@@ -30,8 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let homeVc = HomeViewController()
         let sideVc = SideViewController()
         let homeNav = BaseNavigationController(rootViewController: homeVc)
-        let sideNav = BaseNavigationController(rootViewController: sideVc)
-        let revealController = SWRevealViewController(rearViewController: sideNav, frontViewController: homeNav)
+        let revealController = SWRevealViewController(rearViewController: sideVc, frontViewController: homeNav)
         revealController?.delegate = self
         
         self.window?.rootViewController = revealController

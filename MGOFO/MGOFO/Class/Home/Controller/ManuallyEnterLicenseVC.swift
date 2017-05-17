@@ -48,15 +48,26 @@ extension ManuallyEnterLicenseVC {
     // MARK: setUpMainView
     fileprivate func setUpMainView() {
         self.automaticallyAdjustsScrollViewInsets = false
+        setUpNavgationItem()
         
         /// 顶部
         let topView = TopView()
         let bottomView = BottomView()
-        // bottomView.backgroundColor = UIColor.randomColor()
+        bottomView.backgroundColor = UIColor.randomColor()
         
         view.addSubview(topView)
         view.addSubview(bottomView)
         
+        let aboutVc = AboutUsViewController()
+        self.addChildViewController(aboutVc)
+        aboutVc.view.isHidden = true
+        self.view.addSubview(aboutVc.view)
+        
+        topView.sureBtnBlock = {
+            self.animation(with: self.view, with: .flipFromLeft)
+            aboutVc.view.isHidden = false
+            self.view.bringSubview(toFront: aboutVc.view)
+        }
         
         /// 布局
         topView.snp.makeConstraints { (make) in
@@ -73,11 +84,30 @@ extension ManuallyEnterLicenseVC {
             make.width.equalTo(180)
         }
     }
+    
+    fileprivate func setUpNavgationItem() {
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "帮助", style: .done, target: self, action: #selector(
+            explainClick(_:)))
+    }
+    
+    @objc fileprivate func explainClick(_ item: UIBarButtonItem) {
+        MGKeyWindow?.addSubview(ExplainView.showInPoint(point: CGPoint(x: MGScreenW-45, y: 45)))
+    }
+    
+    // MARK: - 翻转动画
+    func animation(with view: UIView, with transition: UIViewAnimationTransition) {
+        UIView.animate(withDuration: 0.5, animations: {() -> Void in
+            UIView.setAnimationCurve(.easeInOut)
+            UIView.setAnimationTransition(transition, for: view, cache: true)
+        })
+    }
 }
 
 // MARK: - 顶部
 class TopView: UIView,UITextFieldDelegate,APNumberPadDelegate {
     var sureBtn: UIButton!
+    var descripLabel: UILabel!
+    var sureBtnBlock: (() -> ())?
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
@@ -103,7 +133,7 @@ class TopView: UIView,UITextFieldDelegate,APNumberPadDelegate {
         chargingLabel.clipsToBounds = true
         chargingLabel.textColor = UIColor(r: 152, g: 147, b: 130)
         chargingLabel.text = "计费说明：1小时/1元"
-        chargingLabel.font = UIFont.systemFont(ofSize: 14)
+        chargingLabel.font = UIFont.systemFont(ofSize: 16)
         chargingLabel.textAlignment = .center
         
         let inputTextField = UITextField()
@@ -126,8 +156,8 @@ class TopView: UIView,UITextFieldDelegate,APNumberPadDelegate {
         sureBtn.backgroundColor = UIColor.groupTableViewBackground
         sureBtn.isEnabled = false
         
-        let descripLabel = UILabel()
-        descripLabel.font = UIFont.systemFont(ofSize: 17)
+        descripLabel = UILabel()
+        descripLabel.font = UIFont.systemFont(ofSize: 14)
         descripLabel.textColor = UIColor(r: 152, g: 147, b: 130)
         descripLabel.text = "输入车牌号，获取解码锁"
         
@@ -168,12 +198,15 @@ class TopView: UIView,UITextFieldDelegate,APNumberPadDelegate {
     
     @objc fileprivate func sureBtnClick(_ btn: UIButton) {
         self.showInfo(info: "确定")
+        if sureBtnBlock != nil {
+            sureBtnBlock!()
+        }
     }
     
     // MARK: - UITextFieldDelegate,APNumberPadDelegate
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         // guard let text = textField.text else { return true }
-        let textLength = range.location
+        let textLength = range.location + 1
         sureBtn.isEnabled = textLength > 0
         if textLength > 0 {
             sureBtn.setImage(#imageLiteral(resourceName: "nextArrow_enable_25x19_"), for: .normal)
@@ -184,8 +217,14 @@ class TopView: UIView,UITextFieldDelegate,APNumberPadDelegate {
         }
         if textLength >= 8 {
             self.showInfo(info: "你只能输入8位数的车牌号")
+        }else if 4 <= textLength && textLength < 8 {
+            descripLabel.text = "若输入车牌号错误，无法正确打开车锁"
+        }else if 1 < textLength  && textLength < 4 {
+            descripLabel.text = "车牌号为4~8位"
+        }else {
+            descripLabel.text = "输入车牌号，获取解码锁"
         }
-        return textLength < 8
+        return textLength <= 8
     }
     func numberPad(_ numberPad: APNumberPad, functionButtonAction functionButton: UIButton, textInput: UIResponder) {
         sureBtnClick(functionButton)
@@ -267,9 +306,6 @@ class BottomView: UIView {
             }
         }
         let value: Float = btn.isSelected ? 0 : 1
-        // retrieve system volume
-        // var systemVolume: Float? = volumeViewSlider?.value
-        // change system volume, the value is between 0.0f and 1.0f
         volumeViewSlider?.setValue(value, animated: false)
         // send UI control event to make the change effect right now.
         volumeViewSlider?.sendActions(for: .touchUpInside)
@@ -281,5 +317,67 @@ class BottomView: UIView {
             CDAudioManager.shared.mute = true
         }
          */
+    }
+}
+
+// AMRK: - ExplainView
+class ExplainView: UIView {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.backgroundColor = UIColor(r: 10, g: 10, b: 10, a: 0.9)
+        self.frame = MGScreenBounds
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapClick)))
+        setUpUI()
+    }
+    
+    @objc fileprivate func tapClick() {
+        self.hideInPoint(point: CGPoint(x: MGScreenW-45, y: 45), completion: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    fileprivate func setUpUI(){
+        let helpImageV = UIImageView(image: #imageLiteral(resourceName: "guide_QRhelp_354x474_"))
+        addSubview(helpImageV)
+        
+        helpImageV.snp.makeConstraints { (make) in
+            make.center.equalToSuperview()
+            make.width.equalTo(MGScreenW*0.82)
+            make.height.equalTo(MGScreenH*0.73)
+        }
+    }
+}
+
+// AMRK: - 出现和消失的方法
+extension ExplainView {
+    /// 隐藏并且隐藏的中心的位置以及隐藏之后的回调操作
+    /// 创建出来并且出现的中心的位置
+    static func showInPoint(point: CGPoint) -> ExplainView{
+        let bigPictureView = ExplainView(frame: MGScreenBounds)
+        
+        bigPictureView.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
+        UIView.animate(withDuration: 1.2, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: UIViewAnimationOptions.curveLinear, animations: {
+            bigPictureView.transform = CGAffineTransform.identity
+             bigPictureView.center = CGPoint(x: MGScreenW/2, y: MGScreenH/2)
+        }) { (isFinished) in
+            
+        }
+
+        return bigPictureView
+    }
+    
+    
+    func hideInPoint(point: CGPoint, completion: (()->())?) {
+        UIView.animate(withDuration: 1.2, animations: {
+            self.center = point
+            self.transform = CGAffineTransform(scaleX: 0.2, y: 0.15)
+        }) { (isFinished) in
+            self.removeFromSuperview()      // 从父控件中移除FilterView
+            if completion != nil {
+                completion!()               // 移除view之后的操作（回调）
+            }
+        }
     }
 }
