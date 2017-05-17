@@ -20,16 +20,22 @@ import CoreAudio
 
 class ManuallyEnterLicenseVC: UIViewController {
 
+    weak var superVC: EnterLicenseViewController?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "车辆解锁"
         view.backgroundColor = UIColor(white: 0.97, alpha: 1.0)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "扫码用车", style: .done, target: self, action: #selector(backToScan))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "navigationButtonReturnClick"), highImage: #imageLiteral(resourceName: "navigationButtonReturnClick"), norColor: UIColor.darkGray, selColor: UIColor.lightGray, title: "返回", target: self, action: #selector(ManuallyEnterLicenseVC.popClick(_:)))
         setUpMainView()
     }
     
+    @objc fileprivate func popClick(_ sender: UIButton) {
+        let _ = superVC?.navigationController?.popViewController(animated: true)
+    }
+    
     @objc fileprivate func backToScan() {
-        let _ = self.navigationController?.popViewController(animated: true)
+        let _ = superVC?.navigationController?.popViewController(animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,15 +64,21 @@ extension ManuallyEnterLicenseVC {
         view.addSubview(topView)
         view.addSubview(bottomView)
         
-        let aboutVc = AboutUsViewController()
-        self.addChildViewController(aboutVc)
-        aboutVc.view.isHidden = true
-        self.view.addSubview(aboutVc.view)
-        
         topView.sureBtnBlock = {
-            self.animation(with: self.view, with: .flipFromLeft)
-            aboutVc.view.isHidden = false
-            self.view.bringSubview(toFront: aboutVc.view)
+            let firstController: UIViewController? = self.superVC?.childViewControllers[0]
+            let secondController: UIViewController? = self.superVC?.childViewControllers[1]
+            let oldController: UIViewController = (self.superVC?.currentViewController)!
+
+            self.superVC?.transition(from: oldController, to: secondController!, duration: 1, options: .transitionFlipFromLeft, animations: {() -> Void in
+            }, completion: {(_ finished: Bool) -> Void in
+                if finished {
+                   self.superVC?.currentViewController = secondController
+                    self.view.addSubview((self.superVC?.currentViewController.view)!)
+                }
+                else {
+                    self.superVC?.currentViewController = oldController
+                }
+            })
         }
         
         /// 布局
@@ -92,14 +104,6 @@ extension ManuallyEnterLicenseVC {
     
     @objc fileprivate func explainClick(_ item: UIBarButtonItem) {
         MGKeyWindow?.addSubview(ExplainView.showInPoint(point: CGPoint(x: MGScreenW-45, y: 45)))
-    }
-    
-    // MARK: - 翻转动画
-    func animation(with view: UIView, with transition: UIViewAnimationTransition) {
-        UIView.animate(withDuration: 0.5, animations: {() -> Void in
-            UIView.setAnimationCurve(.easeInOut)
-            UIView.setAnimationTransition(transition, for: view, cache: true)
-        })
     }
 }
 

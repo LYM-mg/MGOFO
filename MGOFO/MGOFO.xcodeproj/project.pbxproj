@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C0425DE51ECC1C5000EBD17A /* EnterLicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0425DE41ECC1C5000EBD17A /* EnterLicenseViewController.swift */; };
+		C0425DE71ECC251A00EBD17A /* GetLicensePlateNumberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0425DE61ECC251A00EBD17A /* GetLicensePlateNumberVC.swift */; };
 		C06168991EC466F800414C9A /* MGScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06168981EC466F800414C9A /* MGScanViewController.swift */; };
 		C061689B1EC4670C00414C9A /* MGCodeScan.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C061689A1EC4670C00414C9A /* MGCodeScan.bundle */; };
 		C061689D1EC4671F00414C9A /* ScanBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C061689C1EC4671F00414C9A /* ScanBottomView.swift */; };
@@ -76,6 +78,8 @@
 		5DFB38103AAA44081496DB9F /* Pods-MGOFO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGOFO.release.xcconfig"; path = "Pods/Target Support Files/Pods-MGOFO/Pods-MGOFO.release.xcconfig"; sourceTree = "<group>"; };
 		95289C1CE62B04813DF68499 /* Pods-MGOFO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGOFO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MGOFO/Pods-MGOFO.debug.xcconfig"; sourceTree = "<group>"; };
 		967AEAFF1B10367981B377AB /* Pods_MGOFO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MGOFO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0425DE41ECC1C5000EBD17A /* EnterLicenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterLicenseViewController.swift; sourceTree = "<group>"; };
+		C0425DE61ECC251A00EBD17A /* GetLicensePlateNumberVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetLicensePlateNumberVC.swift; sourceTree = "<group>"; };
 		C043CB541EC1FEC600A743B2 /* BridgeHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeHeader.h; sourceTree = "<group>"; };
 		C06168981EC466F800414C9A /* MGScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGScanViewController.swift; sourceTree = "<group>"; };
 		C061689A1EC4670C00414C9A /* MGCodeScan.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MGCodeScan.bundle; sourceTree = "<group>"; };
@@ -289,7 +293,9 @@
 				C0BD0A121EC2C138001B81B4 /* HomeViewController.swift */,
 				C0BD0A0E1EC2C058001B81B4 /* WKWebViewController.swift */,
 				C06168981EC466F800414C9A /* MGScanViewController.swift */,
+				C0425DE41ECC1C5000EBD17A /* EnterLicenseViewController.swift */,
 				C06168CB1EC9A97E00414C9A /* ManuallyEnterLicenseVC.swift */,
+				C0425DE61ECC251A00EBD17A /* GetLicensePlateNumberVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -567,6 +573,7 @@
 				C06168AC1EC4674B00414C9A /* LBXScanWrapper.swift in Sources */,
 				C0BD0A151EC2DD60001B81B4 /* UIViewController+Extension.swift in Sources */,
 				C06168A61EC4674B00414C9A /* LBXPermissions.swift in Sources */,
+				C0425DE51ECC1C5000EBD17A /* EnterLicenseViewController.swift in Sources */,
 				C0BD09F71EC2C031001B81B4 /* UILabel+Extension.swift in Sources */,
 				C06168B31EC5999200414C9A /* MyWalletViewController.swift in Sources */,
 				C0BD09F61EC2C031001B81B4 /* UIImageView+Extension.swift in Sources */,
@@ -578,6 +585,7 @@
 				C0BD0A111EC2C0CC001B81B4 /* UserHeaderView.swift in Sources */,
 				C06168C51EC8053000414C9A /* SaveTools.swift in Sources */,
 				C09EA29A1EC403FA00D71896 /* BaseNavigationController.swift in Sources */,
+				C0425DE71ECC251A00EBD17A /* GetLicensePlateNumberVC.swift in Sources */,
 				C06168AB1EC4674B00414C9A /* LBXScanViewStyle.swift in Sources */,
 				C0BD09F51EC2C031001B81B4 /* UIImage+Extension.swift in Sources */,
 				C06168B61EC5AF3D00414C9A /* MoreButton.swift in Sources */,

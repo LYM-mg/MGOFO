@@ -93,7 +93,7 @@ class MGScanViewController: LBXScanViewController {
                         btn.setImage(UIImage(named: "btn_unenableTorch_45x45_")!, for:UIControlState.normal)
                     }
                 case .intput:
-                    self.show(ManuallyEnterLicenseVC(), sender: nil)
+                    self.show(EnterLicenseViewController(), sender: nil)
                 case .photo:
                     
                     break
