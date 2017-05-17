@@ -11,6 +11,8 @@
 		C0425DE71ECC251A00EBD17A /* GetLicensePlateNumberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0425DE61ECC251A00EBD17A /* GetLicensePlateNumberVC.swift */; };
 		C0425DE91ECC30AB00EBD17A /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0425DE81ECC30AB00EBD17A /* TopView.swift */; };
 		C0425DEB1ECC30D000EBD17A /* BottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0425DEA1ECC30D000EBD17A /* BottomView.swift */; };
+		C0425DF01ECC842500EBD17A /* HelpTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0425DEE1ECC842500EBD17A /* HelpTableViewController.swift */; };
+		C0425DF31ECC845600EBD17A /* Help.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0425DF21ECC845600EBD17A /* Help.storyboard */; };
 		C06168991EC466F800414C9A /* MGScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06168981EC466F800414C9A /* MGScanViewController.swift */; };
 		C061689B1EC4670C00414C9A /* MGCodeScan.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C061689A1EC4670C00414C9A /* MGCodeScan.bundle */; };
 		C061689D1EC4671F00414C9A /* ScanBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C061689C1EC4671F00414C9A /* ScanBottomView.swift */; };
@@ -84,6 +86,8 @@
 		C0425DE61ECC251A00EBD17A /* GetLicensePlateNumberVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetLicensePlateNumberVC.swift; sourceTree = "<group>"; };
 		C0425DE81ECC30AB00EBD17A /* TopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		C0425DEA1ECC30D000EBD17A /* BottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomView.swift; sourceTree = "<group>"; };
+		C0425DEE1ECC842500EBD17A /* HelpTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpTableViewController.swift; sourceTree = "<group>"; };
+		C0425DF21ECC845600EBD17A /* Help.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Help.storyboard; sourceTree = "<group>"; };
 		C043CB541EC1FEC600A743B2 /* BridgeHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeHeader.h; sourceTree = "<group>"; };
 		C06168981EC466F800414C9A /* MGScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGScanViewController.swift; sourceTree = "<group>"; };
 		C061689A1EC4670C00414C9A /* MGCodeScan.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MGCodeScan.bundle; sourceTree = "<group>"; };
@@ -300,6 +304,8 @@
 				C0425DE41ECC1C5000EBD17A /* EnterLicenseViewController.swift */,
 				C06168CB1EC9A97E00414C9A /* ManuallyEnterLicenseVC.swift */,
 				C0425DE61ECC251A00EBD17A /* GetLicensePlateNumberVC.swift */,
+				C0425DEE1ECC842500EBD17A /* HelpTableViewController.swift */,
+				C0425DF21ECC845600EBD17A /* Help.storyboard */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -513,6 +519,7 @@
 				C0BD0A051EC2C031001B81B4 /* 上车前_D.m4a in Resources */,
 				C06168B81EC8038000414C9A /* https.cer in Resources */,
 				C0BD0A021EC2C031001B81B4 /* 7_D.m4a in Resources */,
+				C0425DF31ECC845600EBD17A /* Help.storyboard in Resources */,
 				C08A2F451EC2053400C90C16 /* SideData.plist in Resources */,
 				C0676C641EC1EE2800302641 /* Main.storyboard in Resources */,
 			);
@@ -585,6 +592,7 @@
 				C06168B31EC5999200414C9A /* MyWalletViewController.swift in Sources */,
 				C0BD09F61EC2C031001B81B4 /* UIImageView+Extension.swift in Sources */,
 				C0BD09F01EC2C031001B81B4 /* String+Extension.swift in Sources */,
+				C0425DF01ECC842500EBD17A /* HelpTableViewController.swift in Sources */,
 				C06168A71EC4674B00414C9A /* LBXScanLineAnimation.swift in Sources */,
 				C0BD0A131EC2C138001B81B4 /* HomeViewController.swift in Sources */,
 				C0676C5F1EC1EE2800302641 /* AppDelegate.swift in Sources */,

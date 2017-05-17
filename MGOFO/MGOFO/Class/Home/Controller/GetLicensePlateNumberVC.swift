@@ -46,7 +46,7 @@ class GetLicensePlateNumberVC: UIViewController {
     }
     
     @objc fileprivate func helpUnlock() {
-        let _ = superVC?.navigationController?.popViewController(animated: true)
+        self.superVC?.show(UIStoryboard(name: "Help", bundle: nil).instantiateInitialViewController()!, sender: nil)
     }
     
     override func didReceiveMemoryWarning() {
