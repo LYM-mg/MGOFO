@@ -30,6 +30,12 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        #if TARGET_IPHONE_SIMULATOR//模拟器
+            self.showInfo(info: "相机不可用")
+        #elseif TARGET_OS_IPHONE//真机
+            self.showInfo(info: "真机设备")
+        #endif
+
         setUpMainView()
         setUpNavgationItem()
         setUpNotification()
