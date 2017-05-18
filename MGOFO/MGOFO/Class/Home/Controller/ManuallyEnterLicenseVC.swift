@@ -69,12 +69,13 @@ extension ManuallyEnterLicenseVC {
         
         topView.sureBtnBlock = {
             // let firstController: UIViewController? = self.superVC?.childViewControllers[0]
-            let secondController: UIViewController? = self.superVC?.childViewControllers[1]
+            let secondController: UINavigationController? = self.superVC?.childViewControllers[1] as? UINavigationController
             let oldController: UIViewController = (self.superVC?.currentViewController)!
 
             self.superVC?.transition(from: oldController, to: secondController!, duration: 1, options: .transitionFlipFromLeft, animations: {() -> Void in
             }, completion: {(_ finished: Bool) -> Void in
                 if finished {
+                   (secondController?.childViewControllers[0] as! GetLicensePlateNumberVC).startPlay()
                    self.superVC?.currentViewController = secondController
                    self.superVC?.view.addSubview((self.superVC?.currentViewController.view)!)
                 }

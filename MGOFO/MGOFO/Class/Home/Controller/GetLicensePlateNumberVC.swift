@@ -22,7 +22,9 @@ class GetLicensePlateNumberVC: UIViewController {
         view.backgroundColor = UIColor(white: 0.98, alpha: 1.0)
         setUpMainView()
         setUpNavgationItem()
-        
+    }
+    
+    func startPlay() {
         Sound.play(file: "上车前_LH.m4a")
         
         Timer.every(1) { (timer: Timer) in
@@ -95,13 +97,12 @@ extension GetLicensePlateNumberVC {
         }
         
         repairTipLabel.snp.makeConstraints { (make) in
-            make.centerX.equalToSuperview().offset(repairTipLabel.mg_width/2)
+            make.right.equalTo(self.view.snp.centerX)
             make.centerY.equalTo(repairBtn)
         }
         
         repairBtn.snp.makeConstraints { (make) in
-            make.centerX.equalToSuperview().offset(repairBtn.mg_width/2)
-            
+            make.left.equalTo(self.view.snp.centerX)
             make.bottom.equalToSuperview().offset(-30)
         }
         

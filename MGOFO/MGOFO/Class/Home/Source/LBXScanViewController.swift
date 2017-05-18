@@ -132,11 +132,11 @@ open class LBXScanViewController: UIViewController, UIImagePickerControllerDeleg
     
     override open func viewWillDisappear(_ animated: Bool) {
         
-        NSObject.cancelPreviousPerformRequests(withTarget: self)
-        
-        qRScanView?.stopScanAnimation()
-        
-        scanObj?.stop()
+//        NSObject.cancelPreviousPerformRequests(withTarget: self)
+//        
+//        qRScanView?.stopScanAnimation()
+//        
+//        scanObj?.stop()
     }
     
     open func openPhotoAlbum()
