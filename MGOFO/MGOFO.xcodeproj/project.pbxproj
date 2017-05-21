@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C01D5B8E1ED1292E00EE6440 /* RidingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01D5B8C1ED1292E00EE6440 /* RidingViewController.swift */; };
 		C01D5B8F1ED1292E00EE6440 /* RidingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C01D5B8D1ED1292E00EE6440 /* RidingViewController.xib */; };
+		C01D5B921ED131AB00EE6440 /* TravelCostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01D5B901ED131AB00EE6440 /* TravelCostViewController.swift */; };
+		C01D5B931ED131AB00EE6440 /* TravelCostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C01D5B911ED131AB00EE6440 /* TravelCostViewController.xib */; };
 		C0425DE51ECC1C5000EBD17A /* EnterLicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0425DE41ECC1C5000EBD17A /* EnterLicenseViewController.swift */; };
 		C0425DE71ECC251A00EBD17A /* GetLicensePlateNumberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0425DE61ECC251A00EBD17A /* GetLicensePlateNumberVC.swift */; };
 		C0425DE91ECC30AB00EBD17A /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0425DE81ECC30AB00EBD17A /* TopView.swift */; };
@@ -86,6 +88,8 @@
 		967AEAFF1B10367981B377AB /* Pods_MGOFO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MGOFO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C01D5B8C1ED1292E00EE6440 /* RidingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RidingViewController.swift; sourceTree = "<group>"; };
 		C01D5B8D1ED1292E00EE6440 /* RidingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RidingViewController.xib; sourceTree = "<group>"; };
+		C01D5B901ED131AB00EE6440 /* TravelCostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelCostViewController.swift; sourceTree = "<group>"; };
+		C01D5B911ED131AB00EE6440 /* TravelCostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TravelCostViewController.xib; sourceTree = "<group>"; };
 		C0425DE41ECC1C5000EBD17A /* EnterLicenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterLicenseViewController.swift; sourceTree = "<group>"; };
 		C0425DE61ECC251A00EBD17A /* GetLicensePlateNumberVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetLicensePlateNumberVC.swift; sourceTree = "<group>"; };
 		C0425DE81ECC30AB00EBD17A /* TopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
@@ -312,6 +316,8 @@
 				C0425DF21ECC845600EBD17A /* Help.storyboard */,
 				C01D5B8C1ED1292E00EE6440 /* RidingViewController.swift */,
 				C01D5B8D1ED1292E00EE6440 /* RidingViewController.xib */,
+				C01D5B901ED131AB00EE6440 /* TravelCostViewController.swift */,
+				C01D5B911ED131AB00EE6440 /* TravelCostViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -510,6 +516,7 @@
 				C0BD0A031EC2C031001B81B4 /* 8_D.m4a in Resources */,
 				C0BD0A091EC2C031001B81B4 /* 骑行结束_LH.m4a in Resources */,
 				C0BD09FB1EC2C031001B81B4 /* 0_D.m4a in Resources */,
+				C01D5B931ED131AB00EE6440 /* TravelCostViewController.xib in Resources */,
 				C01D5B8F1ED1292E00EE6440 /* RidingViewController.xib in Resources */,
 				C061689B1EC4670C00414C9A /* MGCodeScan.bundle in Resources */,
 				C0676C691EC1EE2800302641 /* LaunchScreen.storyboard in Resources */,
@@ -626,6 +633,7 @@
 				C06168AA1EC4674B00414C9A /* LBXScanViewController.swift in Sources */,
 				C06168991EC466F800414C9A /* MGScanViewController.swift in Sources */,
 				C0B5C9EA1EC33973007BEBE4 /* MyPinAnnotation.swift in Sources */,
+				C01D5B921ED131AB00EE6440 /* TravelCostViewController.swift in Sources */,
 				C06168A91EC4674B00414C9A /* LBXScanView.swift in Sources */,
 				C0BD09F31EC2C031001B81B4 /* UIBUtton+Extension.swift in Sources */,
 				C0BD09F41EC2C031001B81B4 /* UIColor+Extension.swift in Sources */,

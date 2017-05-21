@@ -17,7 +17,7 @@ class RidingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "骑行"
+        self.title = "骑行中"
     }
 
     override func didReceiveMemoryWarning() {
