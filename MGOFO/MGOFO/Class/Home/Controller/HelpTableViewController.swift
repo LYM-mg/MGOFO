@@ -14,7 +14,7 @@ class HelpTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "你好"
-        scrollView.contentSize = CGSize(width: MGScreenW, height: MGScreenH*3.8)
+        scrollView.contentSize = CGSize(width: MGScreenW, height: 474*8)
       
     }
 

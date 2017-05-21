@@ -11,6 +11,7 @@
 		C01D5B8F1ED1292E00EE6440 /* RidingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C01D5B8D1ED1292E00EE6440 /* RidingViewController.xib */; };
 		C01D5B921ED131AB00EE6440 /* TravelCostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01D5B901ED131AB00EE6440 /* TravelCostViewController.swift */; };
 		C01D5B931ED131AB00EE6440 /* TravelCostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C01D5B911ED131AB00EE6440 /* TravelCostViewController.xib */; };
+		C01D5B951ED139BC00EE6440 /* MGTimeTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01D5B941ED139BC00EE6440 /* MGTimeTool.swift */; };
 		C0425DE51ECC1C5000EBD17A /* EnterLicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0425DE41ECC1C5000EBD17A /* EnterLicenseViewController.swift */; };
 		C0425DE71ECC251A00EBD17A /* GetLicensePlateNumberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0425DE61ECC251A00EBD17A /* GetLicensePlateNumberVC.swift */; };
 		C0425DE91ECC30AB00EBD17A /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0425DE81ECC30AB00EBD17A /* TopView.swift */; };
@@ -90,6 +91,7 @@
 		C01D5B8D1ED1292E00EE6440 /* RidingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RidingViewController.xib; sourceTree = "<group>"; };
 		C01D5B901ED131AB00EE6440 /* TravelCostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelCostViewController.swift; sourceTree = "<group>"; };
 		C01D5B911ED131AB00EE6440 /* TravelCostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TravelCostViewController.xib; sourceTree = "<group>"; };
+		C01D5B941ED139BC00EE6440 /* MGTimeTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGTimeTool.swift; sourceTree = "<group>"; };
 		C0425DE41ECC1C5000EBD17A /* EnterLicenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterLicenseViewController.swift; sourceTree = "<group>"; };
 		C0425DE61ECC251A00EBD17A /* GetLicensePlateNumberVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetLicensePlateNumberVC.swift; sourceTree = "<group>"; };
 		C0425DE81ECC30AB00EBD17A /* TopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 		C0BD09D21EC2C031001B81B4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C01D5B941ED139BC00EE6440 /* MGTimeTool.swift */,
 				C061689C1EC4671F00414C9A /* ScanBottomView.swift */,
 				C0BD0A1A1EC2E7B6001B81B4 /* CarPanelView.swift */,
 				C0B5C9E91EC33973007BEBE4 /* MyPinAnnotation.swift */,
@@ -609,6 +612,7 @@
 				C0425DF01ECC842500EBD17A /* HelpTableViewController.swift in Sources */,
 				C06168A71EC4674B00414C9A /* LBXScanLineAnimation.swift in Sources */,
 				C0BD0A131EC2C138001B81B4 /* HomeViewController.swift in Sources */,
+				C01D5B951ED139BC00EE6440 /* MGTimeTool.swift in Sources */,
 				C0676C5F1EC1EE2800302641 /* AppDelegate.swift in Sources */,
 				C08A2F2D1EC2027E00C90C16 /* Constant.swift in Sources */,
 				C0BD0A111EC2C0CC001B81B4 /* UserHeaderView.swift in Sources */,

@@ -11,10 +11,13 @@ import SwiftySound
 import SwiftyTimer
 
 class GetLicensePlateNumberVC: UIViewController {
+    
+    fileprivate lazy var topView: TopView = TopView()
+    fileprivate lazy var bottomView: BottomView = BottomView()
 
     weak var superVC: UIViewController?
     fileprivate var countDownLabel: UILabel!
-    var remindTimerNumber: Int = 120
+    var remindTimerNumber: Int = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,15 +28,49 @@ class GetLicensePlateNumberVC: UIViewController {
     }
     
     func startPlay() {
-        Sound.play(file: "上车前_LH.m4a")
+        Sound.play(file: "您的解锁码为_D.m4a")
+        let max: UInt32 = 10000
+        let min: UInt32 = 1000
+        let randomNumber = arc4random_uniform(max - min) + min
+        let randomString = randomNumber.description
         
+        self.topView.resultLabel.text = randomString
+        
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+1)  {
+            Sound.play(file: "\(Int(randomString[0..<1])!)_D.m4a")
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now()+2)  {
+            Sound.play(file: "\(Int(randomString[1..<2])!)_D.m4a")
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now()+3)  {
+            Sound.play(file: "\(Int(randomString[2..<3])!)_D.m4a")
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now()+4)  {
+            Sound.play(file: "\(Int(randomString[3..<4])!)_D.m4a")
+        }
+
+//        playNumberSound(number: Int(randomString[0..<1])!)
+//        playNumberSound(number: Int(randomString[1..<2])!)
+//        playNumberSound(number: Int(randomString[2..<3])!)
+//        playNumberSound(number: Int(randomString[3..<4])!)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+5) {
+            Sound.play(file: "上车前_LH.m4a")
+        }
         Timer.every(1) { (timer: Timer) in
             self.remindTimerNumber -= 1
             self.countDownLabel.text = "\(self.remindTimerNumber)秒开始计费，请检查车辆"
             if self.remindTimerNumber == 0 {
-                
                 timer.invalidate()
+                self.superVC?.show(RidingViewController(nibName: "RidingViewController", bundle: nil), sender: nil)
             }
+        }
+    }
+    
+    fileprivate func playNumberSound(number: Int) {
+        DispatchQueue.main.asyncAfter(deadline: .now()+4)  {
+             Sound.play(file: "\(number)_D.m4a")
         }
     }
     
@@ -61,8 +98,6 @@ class GetLicensePlateNumberVC: UIViewController {
 extension GetLicensePlateNumberVC {
     fileprivate func setUpMainView() {
         /// 顶部
-        let topView = TopView()
-        let bottomView = BottomView()
         bottomView.backgroundColor = UIColor.randomColor()
         
         countDownLabel = UILabel()

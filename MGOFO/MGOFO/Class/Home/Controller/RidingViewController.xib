@@ -23,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ieE-Mz-9Xc">
-                    <rect key="frame" x="10" y="10" width="300" height="223.5"/>
+                    <rect key="frame" x="10" y="74" width="300" height="223.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="骑行时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzf-a5-sYb">
                             <rect key="frame" x="99.5" y="40" width="101.5" height="30"/>
@@ -79,7 +79,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q7e-Lb-0DF">
-                    <rect key="frame" x="10" y="233.5" width="300" height="60"/>
+                    <rect key="frame" x="10" y="297.5" width="300" height="60"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关锁后，请打乱密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s5p-Ns-0He">
                             <rect key="frame" x="58.5" y="18" width="183.5" height="24"/>
@@ -96,7 +96,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M38-dy-n5d">
-                    <rect key="frame" x="10" y="313.5" width="300" height="50"/>
+                    <rect key="frame" x="10" y="377.5" width="300" height="50"/>
                     <color key="backgroundColor" red="1" green="0.85924150369999996" blue="0.163973497" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="XaZ-kh-Zak"/>
@@ -129,11 +129,11 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="0.66666666666666663" alpha="0.096318493150684928" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <constraints>
                 <constraint firstItem="wEK-Vj-4zn" firstAttribute="centerY" secondItem="vRW-tL-laG" secondAttribute="centerY" id="0ew-Lh-1ON"/>
                 <constraint firstItem="wEK-Vj-4zn" firstAttribute="leading" secondItem="vRW-tL-laG" secondAttribute="trailing" constant="-9" id="1vt-jN-Blz"/>
-                <constraint firstItem="ieE-Mz-9Xc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="3yd-3e-WFR"/>
+                <constraint firstItem="ieE-Mz-9Xc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="74" id="3yd-3e-WFR"/>
                 <constraint firstItem="Q7e-Lb-0DF" firstAttribute="top" secondItem="ieE-Mz-9Xc" secondAttribute="bottom" id="4w0-sK-8ie"/>
                 <constraint firstItem="M38-dy-n5d" firstAttribute="leading" secondItem="Q7e-Lb-0DF" secondAttribute="leading" id="MIL-3x-lc3"/>
                 <constraint firstItem="M38-dy-n5d" firstAttribute="centerX" secondItem="Q7e-Lb-0DF" secondAttribute="centerX" id="Meq-ad-Kre"/>
@@ -148,6 +148,7 @@
                 <constraint firstItem="vRW-tL-laG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="-20" id="nax-u7-Paa"/>
                 <constraint firstItem="Q7e-Lb-0DF" firstAttribute="leading" secondItem="ieE-Mz-9Xc" secondAttribute="leading" id="vkt-96-0Ht"/>
             </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
         </view>
     </objects>
     <resources>
