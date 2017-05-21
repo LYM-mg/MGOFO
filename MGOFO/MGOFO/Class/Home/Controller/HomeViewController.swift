@@ -29,7 +29,6 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setUpMainView()
         setUpNavgationItem()
         setUpNotification()
