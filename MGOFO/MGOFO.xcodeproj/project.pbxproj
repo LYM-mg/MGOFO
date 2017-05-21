@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C01D5B8E1ED1292E00EE6440 /* RidingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01D5B8C1ED1292E00EE6440 /* RidingViewController.swift */; };
+		C01D5B8F1ED1292E00EE6440 /* RidingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C01D5B8D1ED1292E00EE6440 /* RidingViewController.xib */; };
 		C0425DE51ECC1C5000EBD17A /* EnterLicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0425DE41ECC1C5000EBD17A /* EnterLicenseViewController.swift */; };
 		C0425DE71ECC251A00EBD17A /* GetLicensePlateNumberVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0425DE61ECC251A00EBD17A /* GetLicensePlateNumberVC.swift */; };
 		C0425DE91ECC30AB00EBD17A /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0425DE81ECC30AB00EBD17A /* TopView.swift */; };
@@ -82,6 +84,8 @@
 		5DFB38103AAA44081496DB9F /* Pods-MGOFO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGOFO.release.xcconfig"; path = "Pods/Target Support Files/Pods-MGOFO/Pods-MGOFO.release.xcconfig"; sourceTree = "<group>"; };
 		95289C1CE62B04813DF68499 /* Pods-MGOFO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGOFO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MGOFO/Pods-MGOFO.debug.xcconfig"; sourceTree = "<group>"; };
 		967AEAFF1B10367981B377AB /* Pods_MGOFO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MGOFO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C01D5B8C1ED1292E00EE6440 /* RidingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RidingViewController.swift; sourceTree = "<group>"; };
+		C01D5B8D1ED1292E00EE6440 /* RidingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RidingViewController.xib; sourceTree = "<group>"; };
 		C0425DE41ECC1C5000EBD17A /* EnterLicenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterLicenseViewController.swift; sourceTree = "<group>"; };
 		C0425DE61ECC251A00EBD17A /* GetLicensePlateNumberVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetLicensePlateNumberVC.swift; sourceTree = "<group>"; };
 		C0425DE81ECC30AB00EBD17A /* TopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
@@ -306,6 +310,8 @@
 				C0425DE61ECC251A00EBD17A /* GetLicensePlateNumberVC.swift */,
 				C0425DEE1ECC842500EBD17A /* HelpTableViewController.swift */,
 				C0425DF21ECC845600EBD17A /* Help.storyboard */,
+				C01D5B8C1ED1292E00EE6440 /* RidingViewController.swift */,
+				C01D5B8D1ED1292E00EE6440 /* RidingViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -504,6 +510,7 @@
 				C0BD0A031EC2C031001B81B4 /* 8_D.m4a in Resources */,
 				C0BD0A091EC2C031001B81B4 /* 骑行结束_LH.m4a in Resources */,
 				C0BD09FB1EC2C031001B81B4 /* 0_D.m4a in Resources */,
+				C01D5B8F1ED1292E00EE6440 /* RidingViewController.xib in Resources */,
 				C061689B1EC4670C00414C9A /* MGCodeScan.bundle in Resources */,
 				C0676C691EC1EE2800302641 /* LaunchScreen.storyboard in Resources */,
 				C0BD09FF1EC2C031001B81B4 /* 4_D.m4a in Resources */,
@@ -606,6 +613,7 @@
 				C06168B61EC5AF3D00414C9A /* MoreButton.swift in Sources */,
 				C06168C81EC8053000414C9A /* UpdateTool.swift in Sources */,
 				C0BD09F81EC2C031001B81B4 /* UIView+Extension.swift in Sources */,
+				C01D5B8E1ED1292E00EE6440 /* RidingViewController.swift in Sources */,
 				C0BD09EF1EC2C031001B81B4 /* NSObject+Extension.swift in Sources */,
 				C06168C31EC8053000414C9A /* NetWorkTools.swift in Sources */,
 				C0BD0A171EC2E1A2001B81B4 /* SideViewController.swift in Sources */,

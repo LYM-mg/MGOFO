@@ -10,10 +10,14 @@ import UIKit
 
 class RidingViewController: UIViewController {
 
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var costLabel: UILabel!
+    @IBOutlet weak var endRadingBtn: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.title = "骑行"
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,14 +26,10 @@ class RidingViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: - Action
+    @IBAction func endRadingBtnClick(_ sender: UIButton) {
     }
-    */
 
+    @IBAction func SafetyInsuranceBtnClick(_ sender: UIButton) {
+    }
 }
