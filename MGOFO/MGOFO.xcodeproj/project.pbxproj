@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C01D5B8A1ED1238E00EE6440 /* RidingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01D5B881ED1238E00EE6440 /* RidingViewController.swift */; };
+		C01D5B8B1ED1238E00EE6440 /* RidingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C01D5B891ED1238E00EE6440 /* RidingViewController.xib */; };
 		C06168991EC466F800414C9A /* MGScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C06168981EC466F800414C9A /* MGScanViewController.swift */; };
 		C061689B1EC4670C00414C9A /* MGCodeScan.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C061689A1EC4670C00414C9A /* MGCodeScan.bundle */; };
 		C061689D1EC4671F00414C9A /* ScanBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C061689C1EC4671F00414C9A /* ScanBottomView.swift */; };
@@ -76,6 +78,8 @@
 		5DFB38103AAA44081496DB9F /* Pods-MGOFO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGOFO.release.xcconfig"; path = "Pods/Target Support Files/Pods-MGOFO/Pods-MGOFO.release.xcconfig"; sourceTree = "<group>"; };
 		95289C1CE62B04813DF68499 /* Pods-MGOFO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MGOFO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MGOFO/Pods-MGOFO.debug.xcconfig"; sourceTree = "<group>"; };
 		967AEAFF1B10367981B377AB /* Pods_MGOFO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MGOFO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C01D5B881ED1238E00EE6440 /* RidingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RidingViewController.swift; sourceTree = "<group>"; };
+		C01D5B891ED1238E00EE6440 /* RidingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RidingViewController.xib; sourceTree = "<group>"; };
 		C043CB541EC1FEC600A743B2 /* BridgeHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeHeader.h; sourceTree = "<group>"; };
 		C06168981EC466F800414C9A /* MGScanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGScanViewController.swift; sourceTree = "<group>"; };
 		C061689A1EC4670C00414C9A /* MGCodeScan.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MGCodeScan.bundle; sourceTree = "<group>"; };
@@ -290,6 +294,8 @@
 				C0BD0A0E1EC2C058001B81B4 /* WKWebViewController.swift */,
 				C06168981EC466F800414C9A /* MGScanViewController.swift */,
 				C06168CB1EC9A97E00414C9A /* ManuallyEnterLicenseVC.swift */,
+				C01D5B881ED1238E00EE6440 /* RidingViewController.swift */,
+				C01D5B891ED1238E00EE6440 /* RidingViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -492,6 +498,7 @@
 				C0676C661EC1EE2800302641 /* Assets.xcassets in Resources */,
 				C06168B41EC5999200414C9A /* MyWalletViewController.xib in Resources */,
 				C0BD0A041EC2C031001B81B4 /* 9_D.m4a in Resources */,
+				C01D5B8B1ED1238E00EE6440 /* RidingViewController.xib in Resources */,
 				C0BD0A071EC2C031001B81B4 /* 您的解锁码为_D.m4a in Resources */,
 				C0BD0A001EC2C031001B81B4 /* 5_D.m4a in Resources */,
 				C0BD0A081EC2C031001B81B4 /* 骑行结束_D.m4a in Resources */,
@@ -562,6 +569,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C06168A81EC4674B00414C9A /* LBXScanNetAnimation.swift in Sources */,
+				C01D5B8A1ED1238E00EE6440 /* RidingViewController.swift in Sources */,
 				C06168C71EC8053000414C9A /* SysNetWorkTools.swift in Sources */,
 				C06168CC1EC9A97E00414C9A /* ManuallyEnterLicenseVC.swift in Sources */,
 				C06168AC1EC4674B00414C9A /* LBXScanWrapper.swift in Sources */,
