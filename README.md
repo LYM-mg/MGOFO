@@ -8,6 +8,7 @@
 ***
 ![OFO.gif](http://upload-images.jianshu.io/upload_images/1429890-f3357eafbb072188.gif?imageMogr2/auto-orient/strip)
 ![手动输入车牌.gif](http://upload-images.jianshu.io/upload_images/1429890-eadcf7171070aba9.gif?imageMogr2/auto-orient/strip)
+![计费.gif](http://upload-images.jianshu.io/upload_images/1429890-fd3c0164b8cf4734.gif?imageMogr2/auto-orient/strip)
 ***
 >- #轻轻点击，关注我简书
  # [轻轻点击，关注我简书](http://www.jianshu.com/u/57b58a39b70e)
