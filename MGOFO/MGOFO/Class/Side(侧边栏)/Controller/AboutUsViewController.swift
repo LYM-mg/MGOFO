@@ -21,7 +21,9 @@ class AboutUsViewController: UIViewController {
         tb.tableFooterView = UIView()
         return tb
     }()
-    fileprivate lazy var dataArr = [["title": "微信服务号","detail": "ofobike"],["title": "ofo官网","detail": "www.ofo.so"],["title": "商务合作","detail": "bdinchina@ofo.so"]]
+    fileprivate lazy var dataArr = [["title": "微信服务号","detail": "ofobike"],
+                                    ["title": "ofo官网","detail": "www.ofo.so"],
+                                    ["title": "商务合作","detail": "bdinchina@ofo.so"]]
 
     override func viewDidLoad() {
         super.viewDidLoad()
