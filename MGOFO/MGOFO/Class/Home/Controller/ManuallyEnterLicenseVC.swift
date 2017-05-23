@@ -94,7 +94,7 @@ extension ManuallyEnterLicenseVC {
             make.top.equalTo(topView.snp.bottom).offset(MGGloabalMargin)
             make.centerX.equalToSuperview()
             make.height.equalTo(80)
-            make.width.equalTo(180)
+            make.width.equalTo(240)
         }
     }
 }

@@ -14,9 +14,7 @@ class HelpTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "你好"
-        scrollView.contentSize = CGSize(width: MGScreenW, height: 474*8)
-        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 474, right: 0)
-      
+    
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "navigationButtonReturnClick"), highImage: #imageLiteral(resourceName: "navigationButtonReturnClick"), norColor: UIColor.darkGray, selColor: UIColor.lightGray, title: "返回", target: self, action: #selector(HelpTableViewController.popClick(_:)))
     }
 
@@ -26,5 +24,11 @@ class HelpTableViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        scrollView.contentSize = CGSize(width: MGScreenW, height: 474*16)
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 474, right: 0)
     }
 }
