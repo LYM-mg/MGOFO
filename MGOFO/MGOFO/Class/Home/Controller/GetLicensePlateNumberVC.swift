@@ -18,6 +18,8 @@ class GetLicensePlateNumberVC: UIViewController {
     weak var superVC: UIViewController?
     fileprivate var countDownLabel: UILabel!
     var remindTimerNumber: Int = 10
+    fileprivate var disPatchTimer: DispatchSourceTimer? = nil
+    var byeCycleNumber: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,28 @@ class GetLicensePlateNumberVC: UIViewController {
         setUpNavgationItem()
     }
     
+    fileprivate func setUpNavgationItem() {
+        self.title = "车辆解锁"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "如何开锁", style: .done, target: self, action: #selector(helpUnlock))
+    }
+    
+    @objc fileprivate func helpUnlock() {
+        disPatchTimer?.suspend() //
+        self.superVC?.show(UIStoryboard(name: "Help", bundle: nil).instantiateInitialViewController()!, sender: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if disPatchTimer != nil {
+            disPatchTimer?.resume() // 定时器继续
+        }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - 接口方法
     func startPlay() {
         Sound.play(file: "您的解锁码为_D.m4a")
         let max: UInt32 = 10000
@@ -34,8 +58,8 @@ class GetLicensePlateNumberVC: UIViewController {
         let randomNumber = arc4random_uniform(max - min) + min
         let randomString = randomNumber.description
         
-        self.topView.resultLabel.text = randomString
-        
+        topView.chargingLabel.text = "车牌号为\(byeCycleNumber)的解锁码"
+        topView.resultLabel.text = randomString
         
         DispatchQueue.main.asyncAfter(deadline: .now()+1)  {
             Sound.play(file: "\(Int(randomString[0..<1])!)_D.m4a")
@@ -49,48 +73,26 @@ class GetLicensePlateNumberVC: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now()+4)  {
             Sound.play(file: "\(Int(randomString[3..<4])!)_D.m4a")
         }
-
-//        playNumberSound(number: Int(randomString[0..<1])!)
-//        playNumberSound(number: Int(randomString[1..<2])!)
-//        playNumberSound(number: Int(randomString[2..<3])!)
-//        playNumberSound(number: Int(randomString[3..<4])!)
         
         DispatchQueue.main.asyncAfter(deadline: .now()+5) {
             Sound.play(file: "上车前_LH.m4a")
         }
-        Timer.every(1) { (timer: Timer) in
-            self.remindTimerNumber -= 1
-            self.countDownLabel.text = "\(self.remindTimerNumber)秒开始计费，请检查车辆"
-            if self.remindTimerNumber == 0 {
-                timer.invalidate()
-                self.superVC?.show(RidingViewController(nibName: "RidingViewController", bundle: nil), sender: nil)
-            }
-        }
-    }
-    
-    fileprivate func playNumberSound(number: Int) {
-        DispatchQueue.main.asyncAfter(deadline: .now()+4)  {
-             Sound.play(file: "\(number)_D.m4a")
-        }
-    }
-    
-    fileprivate func setUpNavgationItem() {
-        self.title = "车辆解锁"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "如何开锁", style: .done, target: self, action: #selector(helpUnlock))
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "navigationButtonReturnClick"), highImage: #imageLiteral(resourceName: "navigationButtonReturnClick"), norColor: UIColor.darkGray, selColor: UIColor.lightGray, title: "返回", target: self, action: #selector(GetLicensePlateNumberVC.popClick(_:)))
-    }
-    
-    @objc fileprivate func popClick(_ sender: UIButton) {
-        let _ = superVC?.navigationController?.popViewController(animated: true)
-    }
-    
-    @objc fileprivate func helpUnlock() {
-        self.superVC?.show(UIStoryboard(name: "Help", bundle: nil).instantiateInitialViewController()!, sender: nil)
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        disPatchTimer = DispatchSource.makeTimerSource(flags: [], queue: DispatchQueue.global())
+        
+        disPatchTimer?.setEventHandler(handler: {
+            DispatchQueue.main.async(execute: {
+                self.remindTimerNumber -= 1
+                self.countDownLabel.text = "\(self.remindTimerNumber)秒开始计费，请检查车辆"
+                if self.remindTimerNumber == 0 {
+                    self.disPatchTimer?.cancel()
+                    self.superVC?.show(RidingViewController(nibName: "RidingViewController", bundle: nil), sender: nil)
+                }
+
+            })
+        })
+        disPatchTimer?.scheduleRepeating(deadline: .now(), interval: 1.0) // , leeway: .milliseconds(100)
+        disPatchTimer?.resume()
     }
 }
 
@@ -153,12 +155,11 @@ extension GetLicensePlateNumberVC {
         topView.inputTextField.isHidden = true
         topView.sureBtn.isHidden = true
         topView.imageV.image = #imageLiteral(resourceName: "smartLock_340x135_")
-        topView.chargingLabel.text = "车牌号为09329的解锁码"
-        topView.resultLabel.text = "3222"
+        topView.resultLabel.text = ""
         topView.descripLabel.text = "骑行结束后，记得在手机上结束行程"
     }
     
     @objc fileprivate func immediateRepair() {
-        
+        self.showHint(hint: "立即维修")
     }
 }

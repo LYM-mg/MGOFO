@@ -12,6 +12,20 @@ import UIKit
 class BaseNavigationController: UINavigationController {
     
     var popDelegate: UIGestureRecognizerDelegate?
+    lazy var popBtn: UIButton = {
+        let popBtn = UIButton(image: #imageLiteral(resourceName: "navigationButtonReturnClick"), title: "返回", target: self, action: #selector(BaseNavigationController.popClick(_:)))
+        // 设置popBtn的属性
+        //        popBtn.mg_size = CGSize(width: 60, height: 20)
+        popBtn.setTitleColor(UIColor.white, for: .normal)
+        popBtn.setTitleColor(UIColor.colorWithCustom(r: 60, g: 60, b: 60), for: .highlighted)
+        
+        popBtn.contentHorizontalAlignment = .left
+        popBtn.contentEdgeInsets = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 0)
+        popBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 0)
+        popBtn.titleEdgeInsets  = UIEdgeInsetsMake(0, 0, 0, 0)
+        return popBtn
+    }()
+
     
     override class func initialize() {
         super.initialize()
@@ -22,7 +36,7 @@ class BaseNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // 1.全局拖拽手势
-        setUpGlobalPan()
+        setUpGlobalPanGes()
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,7 +54,8 @@ extension BaseNavigationController {
 
         if self.childViewControllers.count > 0 {
             viewController.hidesBottomBarWhenPushed = true
-            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "navigationButtonReturnClick"), highImage: #imageLiteral(resourceName: "navigationButtonReturnClick"), norColor: UIColor.darkGray, selColor: UIColor.lightGray, title: "返回", target: self, action: #selector(BaseNavigationController.popClick(_:)))
+            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: popBtn)
+//            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "navigationButtonReturnClick"), highImage: #imageLiteral(resourceName: "navigationButtonReturnClick"), norColor: UIColor.darkGray, selColor: UIColor.lightGray, title: "返回", target: self, action: #selector(BaseNavigationController.popClick(_:)))
         }
         super.pushViewController(viewController, animated: animated)
     }
@@ -58,7 +73,7 @@ extension BaseNavigationController {
 // MARK: - 全局拖拽手势
 extension BaseNavigationController: UIGestureRecognizerDelegate {
     /// 全局拖拽手势
-    fileprivate func setUpGlobalPan() {
+    func setUpGlobalPanGes() {
         // 1.创建Pan手势
         let target = interactivePopGestureRecognizer?.delegate
         let globalPan = UIPanGestureRecognizer(target: target, action: Selector(("handleNavigationTransition:")))
@@ -69,7 +84,7 @@ extension BaseNavigationController: UIGestureRecognizerDelegate {
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
     }
     
-    /// 什么时候支持全屏手势
+    /// 什么时候支持全屏手势（解决手势和TableView左滑冲突问题）
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         if self.childViewControllers.count != 1 {
             if (gestureRecognizer is UIPanGestureRecognizer) {
@@ -89,6 +104,19 @@ extension BaseNavigationController: UIGestureRecognizerDelegate {
             return true
         } else {
            return false
+        }
+    }
+    
+    /// 移除全局手势
+    func removeGlobalPanGes() {
+//        for ges in self.view.gestureRecognizers! where ges is UIPanGestureRecognizer {
+//            print(ges)
+//            self.view.gestureRecognizers?.remove(at: 1)
+//        }
+        for case let ges as UIPanGestureRecognizer in self.view.gestureRecognizers! {
+            let i = self.view.gestureRecognizers?.index(of: ges)
+            self.view.gestureRecognizers?.remove(at: i!)
+            print(ges)
         }
     }
 }

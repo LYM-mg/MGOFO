@@ -18,13 +18,21 @@ class TravelCostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "行程消费"
-        self.navigationItem.leftBarButtonItem = nil
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: UIView())
+        self.navigationItem.backBarButtonItem = nil
+        (self.navigationController as! BaseNavigationController).removeGlobalPanGes()
+        
         Sound.play(file: "骑行结束_LH.m4a")
         
         costFeeLabel.text = String(format: "%.2f", Float(costTip))
         totalFeeLabel.text = "总费用\(self.costTip)元"
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        (self.navigationController as! BaseNavigationController).setUpGlobalPanGes()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
