@@ -148,26 +148,25 @@ open class LBXScanWrapper: NSObject,AVCaptureMetadataOutputObjectsDelegate {
     }
     
     func start() {
-        #if TARGET_IPHONE_SIMULATOR //模拟器
-            self.showInfo(info: "相机不可用")
-        #elseif TARGET_OS_IPHONE//真机
-            self.showInfo(info: "相机")
-            session.startRunning()
-        #endif
         if !session.isRunning {
             isNeedScanResult = true
-            session.startRunning()
+            if Platform.isSimulator { //模拟器
+                self.showInfo(info: "相机不可用")
+                print("isSimulator")
+            } else { //真机
+                session.startRunning()
+            }
         }
     }
     func stop() {
         if session.isRunning {
             isNeedScanResult = false
-            session.stopRunning()
-            #if TARGET_IPHONE_SIMULATOR//模拟器
+            if Platform.isSimulator { //模拟器
                 self.showInfo(info: "相机不可用")
-            #elseif TARGET_OS_IPHONE//真机
-               session.stopRunning()
-            #endif
+                print("isSimulator")
+            } else { //真机
+                session.stopRunning()
+            }
         }
     }
     

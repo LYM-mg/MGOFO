@@ -49,6 +49,17 @@ class SaveTools: NSObject {
 }
 
 
+struct Platform {
+    static let isSimulator: Bool = {
+        var isSim = false
+        #if arch(i386) || arch(x86_64)
+            isSim = true
+        #endif
+        return isSim
+    }()
+}
+
+
 /* 
  //                let userAccountPath = "\(NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask,true).first!)/userAccount.plist"
  //                NSKeyedArchiver.archiveRootObject(self.userVM.userModel!, toFile: userAccountPath)
