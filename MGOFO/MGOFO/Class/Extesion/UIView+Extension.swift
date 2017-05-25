@@ -126,8 +126,7 @@ extension UIView {
     @IBInspectable var cornerRadius: CGFloat {
         get {
             return self.layer.cornerRadius
-        }
-        set {
+        } set {
             layer.cornerRadius = newValue
             layer.masksToBounds = newValue > 0
         }
@@ -136,7 +135,7 @@ extension UIView {
     @IBInspectable var borderWidth: CGFloat {
         get{
             return self.layer.borderWidth
-        }set {
+        } set {
             self.layer.borderWidth = newValue
         }
     }
@@ -152,7 +151,7 @@ extension UIView {
     @IBInspectable var shadowOffset: CGSize {
         get{
             return self.layer.shadowOffset
-        }set {
+        } set {
             self.layer.shadowOffset = newValue
         }
     }
@@ -160,7 +159,7 @@ extension UIView {
     @IBInspectable var shadowColor: UIColor {
         get{
             return UIColor(cgColor: self.layer.shadowColor!)
-        }set {
+        } set {
             self.layer.shadowColor = newValue.cgColor
         }
     }
