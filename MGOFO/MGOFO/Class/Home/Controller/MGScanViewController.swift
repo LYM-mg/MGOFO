@@ -148,7 +148,7 @@ class ExplainView: UIView {
         
         closeBtn.snp.makeConstraints { (make) in
             make.centerX.equalToSuperview()
-            make.top.equalTo(helpImageV.snp.bottom).offset(35)
+            make.top.equalTo(helpImageV.snp.bottom).offset(25)
             make.width.equalTo(35)
             make.height.equalTo(35)
         }
