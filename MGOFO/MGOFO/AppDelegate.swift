@@ -46,10 +46,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         
         //如果已存在后台任务，先将其设为完成
+        /*
         if self.backgroundTask != nil {
             application.endBackgroundTask(self.backgroundTask)
             self.backgroundTask = UIBackgroundTaskInvalid
         }
+         */
         
         //如果要后台运行
         //注册后台任务

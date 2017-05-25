@@ -123,6 +123,10 @@ class TopView: UIView,UITextFieldDelegate,APNumberPadDelegate {
     }
     
     @objc fileprivate func sureBtnClick(_ btn: UIButton) {
+        if inputTextField.text!.characters.count < 4 {
+            self.showInfo(info: "车牌号为4~8位")
+            return
+        }
         if sureBtnBlock != nil {
             sureBtnBlock!()
         }
@@ -141,7 +145,7 @@ class TopView: UIView,UITextFieldDelegate,APNumberPadDelegate {
             sureBtn.backgroundColor = UIColor.groupTableViewBackground
         }
         if textLength >= 8 {
-            self.showInfo(info: "你只能输入8位数的车牌号")
+            self.showInfo(info: "你最多只能输入8位数的车牌号")
         }else if 4 <= textLength && textLength < 8 {
             descripLabel.text = "若输入车牌号错误，无法正确打开车锁"
         }else if 1 < textLength  && textLength < 4 {

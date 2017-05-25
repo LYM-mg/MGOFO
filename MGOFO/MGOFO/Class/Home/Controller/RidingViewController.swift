@@ -78,7 +78,7 @@ class RidingViewController: UIViewController {
             disPatchTimer = nil
             disPatchTimer?.cancel()
         }else {
-            timer == nil
+            timer = nil
             timer?.invalidate()
         }
     }

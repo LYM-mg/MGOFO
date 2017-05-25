@@ -55,7 +55,6 @@ extension ManuallyEnterLicenseVC {
         let topView = TopView()
         topView.resultLabel.isHidden = true
         let bottomView = BottomView()
-        bottomView.backgroundColor = UIColor.randomColor()
         
         view.addSubview(topView)
         view.addSubview(bottomView)
@@ -94,7 +93,7 @@ extension ManuallyEnterLicenseVC {
             make.top.equalTo(topView.snp.bottom).offset(MGGloabalMargin)
             make.centerX.equalToSuperview()
             make.height.equalTo(80)
-            make.width.equalTo(240)
+            make.width.equalTo(220)
         }
     }
 }

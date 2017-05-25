@@ -99,9 +99,7 @@ class GetLicensePlateNumberVC: UIViewController {
 // MARK: setUpMainView
 extension GetLicensePlateNumberVC {
     fileprivate func setUpMainView() {
-        /// 顶部
-        bottomView.backgroundColor = UIColor.randomColor()
-        
+        /// 顶部        
         countDownLabel = UILabel()
         countDownLabel.textAlignment = .center
         
@@ -130,7 +128,7 @@ extension GetLicensePlateNumberVC {
             make.top.equalTo(topView.snp.bottom).offset(MGGloabalMargin)
             make.centerX.equalToSuperview()
             make.height.equalTo(80)
-            make.width.equalTo(240)
+            make.width.equalTo(220)
         }
         
         repairTipLabel.snp.makeConstraints { (make) in
@@ -140,7 +138,7 @@ extension GetLicensePlateNumberVC {
         
         repairBtn.snp.makeConstraints { (make) in
             make.left.equalTo(self.view.snp.centerX)
-            make.bottom.equalToSuperview().offset(-30)
+            make.bottom.equalToSuperview().offset(-10)
         }
         
         countDownLabel.snp.makeConstraints { (make) in

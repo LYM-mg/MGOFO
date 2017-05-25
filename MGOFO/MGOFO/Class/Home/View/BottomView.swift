@@ -45,8 +45,9 @@ class BottomView: UIView {
             make.width.height.equalTo(flashBtn)
         }
         seperateView.snp.makeConstraints { (make) in
-            make.width.equalTo(1)
-            make.center.height.equalToSuperview()
+            make.width.equalTo(1.5)
+            make.center.equalToSuperview()
+            make.height.equalTo(flashBtn.mg_height*0.8)
         }
         
         voiceBtn.isSelected = (SaveTools.mg_getLocalData(key: "isVoiceOn") == nil)
